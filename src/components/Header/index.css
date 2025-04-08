@@ -1,0 +1,32 @@
+.header {
+    background-color: #f2eadf;
+    color: #023059;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+  
+.header h1 {
+    margin-bottom: 0.5rem;
+}
+  
+.header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+  
+.header nav a {
+    color: #023059;
+    text-decoration: none;
+    font-weight: 500;
+}
+  
+.header nav a:hover {
+    text-decoration: underline;
+    color: #d94814;
+    font-weight: bold;
+}
+  

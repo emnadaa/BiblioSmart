@@ -1,0 +1,59 @@
+.apropos {
+    display: flex;
+    align-items: center;
+    
+    margin: 0;
+    background-color: #F2EADF;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+  
+  /* Partie gauche avec l'image */
+.left-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.left-image {
+    max-width: 80%;
+    height: auto;
+    
+    
+}
+  
+  /* Partie texte + image */
+.info-box {
+    flex: 2;
+    background-color: #FAE5CF;
+    padding: 30px;
+    margin-left: 30px;
+    padding-right: 10px;
+    margin-right: 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+  
+.info-box p {
+    font-size: 16px;
+    color: #012048;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.info-box h4{
+    color:#400101;
+    text-align: center;
+}
+.apropos-img {
+    width: 300px;
+    border-radius: 10px;
+    
+}
+  
+  /* Animation pour le header (à ajouter si header global) */
+header {
+    transition: background-color 0.5s ease;
+}
+
+  
