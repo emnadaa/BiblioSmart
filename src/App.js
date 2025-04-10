@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Header from "./components/Header";
 import Accueil from "./components/Accueil";
 import Apropos from "./components/Apropos";
@@ -9,10 +14,13 @@ import Contact from "./components/Contact";
 import Seconnecter from "./components/Seconnecter";
 import Sinscrire from "./components/Sinscrire";
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const excludeHeaderPaths = ["/Seconnecter", "/Sinscrire"];
+
   return (
-    <Router>
-      <Header />
+    <>
+      {!excludeHeaderPaths.includes(location.pathname) && <Header />}
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/apropos" element={<Apropos />} />
@@ -22,6 +30,14 @@ function App() {
         <Route path="/Seconnecter" element={<Seconnecter />} />
         <Route path="/Sinscrire" element={<Sinscrire />} />
       </Routes>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

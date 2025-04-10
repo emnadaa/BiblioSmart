@@ -14,6 +14,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
+import Header from "../Header";
 
 const Accueil = () => {
   const navigate = useNavigate();
