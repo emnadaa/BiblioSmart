@@ -6,6 +6,8 @@ import Apropos from "./components/Apropos";
 import Service from "./components/Service";
 import Equipe from "./components/Equipe";
 import Contact from "./components/Contact";
+import Seconnecter from "./components/Seconnecter";
+import Sinscrire from "./components/Sinscrire";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/service" element={<Service />} />
         <Route path="/equipe" element={<Equipe />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/Seconnecter" element={<Seconnecter />} />
+        <Route path="/Sinscrire" element={<Sinscrire />} />
       </Routes>
     </Router>
   );
