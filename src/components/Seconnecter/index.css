@@ -1,0 +1,95 @@
+.seconnecter {
+  background-color: #faf1e5;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  max-width: 400px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.container h1 {
+  color: #023373;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: #fae5cf;
+  padding: 2rem;
+  padding-top: 1px;
+  border-radius: 60px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.card h2 {
+  color: #000000;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+  font-size: 30px;
+}
+
+.subtitle {
+  color: #242323;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.info label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.info input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.info input:hover {
+  border-color: #d94814;
+}
+.button {
+  background-color: #d94814;
+  color: white;
+  border-style: none;
+  border-radius: 20px;
+  font-size: 30px;
+  width: 340px;
+  height: 60px;
+}
+
+.button:hover {
+  background-color: white;
+  color: #d94814;
+  border-color: #d94814;
+}
+
+.forgot-password {
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+.forgot-password a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
