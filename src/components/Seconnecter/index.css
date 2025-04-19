@@ -79,17 +79,61 @@
   color: #d94814;
   border-color: #d94814;
 }
-
-.forgot-password {
-  text-align: right;
-  font-size: 0.8rem;
+.sinscrire {
+  background-color: #fae5cf;
+  color: #7f8c8d;
+  font-size: 0.9rem;
 }
-
-.forgot-password a {
+.sinscrire a {
   color: #3498db;
   text-decoration: none;
 }
 
-.forgot-password a:hover {
+.sinscrire a:hover {
   text-decoration: underline;
+}
+.forgot {
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+.forgot a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+}
+.footer {
+  color: #7f8c8d;
+  font-size: 0.8rem;
+  margin-top: 2rem;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.links a {
+  color: #7f8c8d;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
 }

@@ -1,0 +1,164 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f2eadf;
+}
+
+.biblioSmart {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #fae5cf;
+  border-bottom: 2px solid #9d847c;
+  border-top: 2px solid #9d847c;
+  box-shadow: #9d847c;
+}
+
+.logo {
+  margin: 0;
+  color: #023059;
+}
+
+.links {
+  margin-left: 300px;
+  display: flex;
+  list-style: none;
+  margin-top: 15px;
+}
+
+.links li {
+  margin-left: 20px;
+  cursor: pointer;
+  color: #023059;
+}
+
+.links li.active {
+  font-weight: bold;
+  color: #d94814;
+}
+.navbar img {
+  width: 40px;
+}
+.search-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.search-section h2 {
+  margin-bottom: 20px;
+}
+.quick-actions {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+.quick-actions .action {
+  background-color: #fae5cf;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 4px 8px rgba(22, 22, 22, 0.877);
+}
+.action img {
+  width: 100px;
+  height: 100px;
+  margin-top: 25px;
+  margin-left: 50px;
+}
+.quick-actions button {
+  margin-top: 20px;
+  background-color: transparent;
+  color: #023059;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.quick-actions button:hover {
+  color: #d94814;
+}
+.nouveautes {
+  margin-bottom: 40px;
+}
+
+.couverture {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+.livre img {
+  width: 290px;
+  height: 370px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* Upcoming Events */
+.upcoming-events ul {
+  list-style: none;
+  padding: 0;
+}
+
+.upcoming-events li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Footer */
+.footer-dashboard {
+  background-color: #fbedde;
+  padding: 30px 20px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.biblio,
+.links,
+.contact {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-dashboard h3,
+.footer-dashboard h4 {
+  margin-top: 0;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.links li:hover {
+  text-decoration: underline;
+}

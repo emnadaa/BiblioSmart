@@ -15,6 +15,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
 import Header from "../Header";
+import Apropos from "../Apropos";
 
 const Accueil = () => {
   const navigate = useNavigate();

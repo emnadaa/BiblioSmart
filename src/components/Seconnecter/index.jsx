@@ -1,14 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
-const Seconnecter = () => {
+const Seconnecter = ({ setIsAuthenticated }) => {
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+    navigate("/Dashboard");
+  };
   return (
     <main className="seconnecter">
       <div className="container">
         <h1>BiblioSmart</h1>
         <div className="card">
           <h2>Se connecter</h2>
-          <p className="descp">Découvrez BiblioSmart d'une meilleure façon</p>
+          <p className="subtitle">
+            Découvrez BiblioSmart d'une meilleure façon
+          </p>
           <form className="form">
             <div className="info">
               <label>Email*</label>
@@ -25,16 +32,14 @@ const Seconnecter = () => {
                 <Link to="/forgot-password">Mot de passe oublié?</Link>
               </div>
             </div>
-            <button type="submit" className="button">
+            <button type="submit" className="button" onClick={handleLogin}>
               Se connecter
             </button>
           </form>
-          <div className="compte">
-            <p className="sinscrire">
-              Vous n'avez pas un compte?
-              <Link to="/sinscrire">Créer un compte</Link>
-            </p>
-          </div>
+          <p className="sinscrire">
+            Vous n'avez pas un compte?{""}
+            <Link to="/sinscrire">Créer un compte</Link>
+          </p>
         </div>
         <footer className="footer">
           <p>©2025 Bibliosmart.</p>
