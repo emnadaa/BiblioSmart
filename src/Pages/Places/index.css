@@ -1,0 +1,45 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f2eadf;
+}
+.reservation-form {
+  margin-top: 40px;
+  margin-left: 20px;
+  width: 700px;
+}
+.reservation-form h3 {
+  width: 400px;
+  color: #023373;
+}
+.content-places {
+  display: flex;
+}
+.img-places img {
+  width: 700px;
+  margin-top: 40px;
+}
+.simple-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.left-side p {
+  margin-top: 30px;
+  color: #023059;
+}
+.right-side ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.right-side li {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.right-side li:hover {
+  text-decoration: underline;
+}

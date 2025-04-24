@@ -11,14 +11,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
-.content {
-  flex: 1;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -56,6 +48,7 @@ body {
   width: 40px;
 }
 .search-section {
+  margin-top: 30px;
   text-align: center;
   margin-bottom: 40px;
 }
@@ -68,6 +61,7 @@ body {
   justify-content: center;
   gap: 50px;
   margin-top: 20px;
+  margin-left: 120px;
 }
 .quick-actions .action {
   background-color: #fae5cf;
@@ -81,7 +75,7 @@ body {
   width: 100px;
   height: 100px;
   margin-top: 25px;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 .quick-actions button {
   margin-top: 20px;
@@ -111,54 +105,81 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-/* Upcoming Events */
-.upcoming-events ul {
+.events ul {
+  display: flex;
+  gap: 40px;
+}
+.event-card {
+  display: flex;
+  height: 120px;
+  width: 550px;
+  background-color: white;
+  border: 1px solid #d94814;
+  border-radius: 10px;
+}
+.event-card img {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 70px;
+  height: 70px;
+}
+.event-card li {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 30px;
+  padding-left: 40px;
   list-style: none;
-  padding: 0;
 }
-
-.upcoming-events li {
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-}
-
-/* Footer */
 .footer-dashboard {
   background-color: #fbedde;
   padding: 30px 20px;
 }
-
 .content {
   display: flex;
-  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
 }
-
-.biblio,
-.links,
-.contact {
-  flex: 1;
-  min-width: 250px;
-  margin-bottom: 20px;
+.biblio h3 {
+  color: #023059;
 }
-
-.footer-dashboard h3,
-.footer-dashboard h4 {
+.biblio .paragraph {
   margin-top: 0;
+  color: #827f7f;
 }
-
+.social {
+  display: flex;
+  gap: 50px;
+}
+.social img {
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+}
+.biblio p {
+  margin-top: 30px;
+  color: #023059;
+}
 .links ul {
+  display: flex;
+  margin-top: 0%;
   list-style: none;
-  padding: 0;
+  justify-content: space-between;
 }
 
 .links li {
-  margin-bottom: 10px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .links li:hover {
   text-decoration: underline;
+}
+.contact {
+  display: flex;
+  gap: 30px;
+  margin-left: 350px;
+  font-size: small;
+  width: 100px;
+  height: 100px;
 }

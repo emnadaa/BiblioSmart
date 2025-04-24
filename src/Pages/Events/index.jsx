@@ -1,46 +1,80 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import profile1 from "../assets/profile1.png";
 import "./index.css";
 
 const Events = () => {
   const navigate = useNavigate();
 
+  const events = [
+    {
+      title: "Club de lecture: Fiction contemporaine",
+      date: "Jeudi, 21 Mai 2025",
+      description:
+        "Discussion sur les dernières œuvres de fiction contemporaine.",
+    },
+    {
+      title: "Conférence sur l'histoire locale",
+      date: "Samedi, 23 Mai 2025",
+      description: "Découvrez l'histoire fascinante de notre région.",
+    },
+  ];
+
   return (
     <div className="events-page">
-      <h1>BiblioSmart</h1>
-
-      <nav className="main-nav">
-        <button onClick={() => navigate("/dashboard")}>Accueil</button>
-        <button onClick={() => navigate("/reserve-place")}>
-          Réserver une place
-        </button>
-        <button onClick={() => navigate("/books")}>Livres</button>
-        <button onClick={() => navigate("/events")}>Evénements</button>
+      <nav className="navbar">
+        <h1 className="logo">BiblioSmart</h1>
+        <ul className="links">
+          <li>Accueil</li>
+          <Link to="/Places">
+            <li>Réserver une place</li>
+          </Link>
+          <Link to="/Livres">
+            <li>Livres</li>
+          </Link>
+          <Link to="/Events">
+            <li className="active">Evénements</li>
+          </Link>
+        </ul>
+        <Link to="/Profile">
+          <img src={profile1} alt="user" />
+        </Link>
       </nav>
 
       <div className="events-content">
-        <p>
+        <h3>
           Ces événements sont disponibles dans notre bibliothèque pendant cette
           période. Soyez le bienvenu !
-        </p>
+        </h3>
 
-        <div className="event-card">
-          <h3>Club de lecture: Fiction contemporaine</h3>
-          <p>Jeudi, 21 Mai 2025</p>
-          <button className="see-more">Voir plus &gt;&gt;</button>
-        </div>
-
-        <div className="event-card">
-          <h3>Conférence sur l'histoire locale</h3>
-          <p>Samedi, 23 Mai 2025</p>
-          <button className="see-more">Voir plus &gt;&gt;</button>
-        </div>
+        {events.map((event, index) => (
+          <div key={index} className="event-card">
+            <h3>{event.title}</h3>
+            <p>{event.date}</p>
+            <button
+              className="see-more"
+              onClick={() => navigate(`/event-details/${index}`)}
+            >
+              Voir plus &gt;&gt;
+            </button>
+          </div>
+        ))}
       </div>
 
       <footer className="simple-footer">
-        <p>
-          © 2025 <strong>BiblioSmart.</strong>
-        </p>
+        <div className="left-side">
+          <p>
+            © 2025 <strong>BiblioSmart.</strong>
+          </p>
+        </div>
+        <div className="right-side">
+          <ul>
+            <li>Apropos</li>
+            <li>Services</li>
+            <li>Equipe</li>
+            <li>Contact</li>
+          </ul>
+        </div>
       </footer>
     </div>
   );

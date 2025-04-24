@@ -49,12 +49,6 @@ function AppContent() {
           element={<Seconnecter setIsAuthenticated={setIsAuthenticated} />}
         />
         {/* Protected routes */}
-        <Route
-          path="/Dashboard"
-          element={
-            isAuthenticated ? <Dashboard /> : <Navigate to="/Seconnecter" />
-          }
-        />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Places" element={<Places />} />
         <Route path="/Livres" element={<Livres />} />

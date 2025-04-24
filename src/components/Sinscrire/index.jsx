@@ -1,17 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
 
 const Sinscrire = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    nom: "",
+    prenom: "",
+    telephone: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  {
-    /*const handleSubmit = (e) => {
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+    setError(""); // Reset l'erreur au changement de champs
+  };
+
+  const validatePassword = (password) => {
+    // Vérifie si le mot de passe est fort
+    const regex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regex.test(password);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsAuthenticated(true);
-    navigate("/dashboard");
-  };*/
-  }
+
+    const { password, confirmPassword } = formData;
+
+    if (password !== confirmPassword) {
+      setError("Les mots de passe ne correspondent pas.");
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setError(
+        "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial."
+      );
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "http://localhost/bibliosmart/Sinscrire.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        navigate("/Seconnecter");
+      } else {
+        setError(data.message || "Erreur lors de l'inscription.");
+      }
+    } catch (err) {
+      setError("Erreur de connexion au serveur.");
+    }
+  };
+
   return (
     <main className="sinscrire">
       <div className="container">
@@ -22,21 +81,38 @@ const Sinscrire = ({ setIsAuthenticated }) => {
             Découvrez Bibliosmart d'une meilleure façon
           </p>
 
-          <form className="form">
+          <form className="form" onSubmit={handleSubmit}>
             <div className="info">
               <label>Nom*</label>
-              <input type="text" placeholder="Votre nom" required />
+              <input
+                type="text"
+                name="nom"
+                value={formData.nom}
+                onChange={handleChange}
+                placeholder="Votre nom"
+                required
+              />
             </div>
 
             <div className="info">
               <label>Prénom*</label>
-              <input type="text" placeholder="Votre prénom" required />
+              <input
+                type="text"
+                name="prenom"
+                value={formData.prenom}
+                onChange={handleChange}
+                placeholder="Votre prénom"
+                required
+              />
             </div>
 
             <div className="info">
               <label>Téléphone*</label>
               <input
                 type="tel"
+                name="telephone"
+                value={formData.telephone}
+                onChange={handleChange}
                 placeholder="Votre numéro de téléphone"
                 required
               />
@@ -44,16 +120,41 @@ const Sinscrire = ({ setIsAuthenticated }) => {
 
             <div className="info">
               <label>Email*</label>
-              <input type="email" placeholder="Votre email" required />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Votre email"
+                required
+              />
             </div>
 
             <div className="info">
               <label>Mot De Passe*</label>
               <input
                 type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Créez un mot de passe"
                 required
               />
+            </div>
+
+            <div className="info">
+              <label>Confirmer le Mot De Passe*</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                placeholder="Confirmez le mot de passe"
+                required
+              />
+              {error && (
+                <p style={{ color: "red", marginTop: "5px" }}>{error}</p>
+              )}
             </div>
 
             <div className="checkbox">

@@ -9,6 +9,11 @@ import livre1 from "../assets/livre1.png";
 import livre2 from "../assets/livre2.png";
 import livre3 from "../assets/livre3.png";
 import livre4 from "../assets/livre4.png";
+import calendrier from "../assets/calendrier.png";
+import x from "../assets/twitter.png";
+import fb from "../assets/facebook.png";
+import insta from "../assets/instagram.png";
+import linkedIn from "../assets/linkedin.png";
 import "./index.css";
 import { Link } from "react-router-dom";
 
@@ -19,9 +24,15 @@ const Dashboard = () => {
         <h1 className="logo">BiblioSmart</h1>
         <ul className="links">
           <li className="active">Accueil</li>
-          <li>Réserver une place</li>
-          <li>Livres</li>
-          <li>Evénements</li>
+          <Link to="/Places">
+            <li>Réserver une place</li>
+          </Link>
+          <Link to="/Livres">
+            <li>Livres</li>
+          </Link>
+          <Link to="/Events">
+            <li>Evénements</li>
+          </Link>
         </ul>
         <Link to="/Profile">
           <img src={profile1} alt="user" />
@@ -50,7 +61,7 @@ const Dashboard = () => {
               placeholder="Recherchez un livre, un auteur, un évènement..."
               style={{
                 width: "1200px",
-                padding: "10px 10px 10px 40px", // padding left pour laisser la place à l'image
+                padding: "10px 10px 10px 40px",
                 borderRadius: "8px",
                 border: "1px solid #D94814",
               }}
@@ -59,20 +70,28 @@ const Dashboard = () => {
 
           <div className="quick-actions">
             <div className="action">
-              <img src={Book} alt="livre" />
-              <button>Réserver un livre</button>
+              <Link to="/Livres">
+                <img src={Book} alt="livre" />
+                <button>Réserver un livre</button>
+              </Link>
             </div>
             <div className="action">
-              <img src={place} alt="place" />
-              <button>Réserver une place</button>
+              <Link to="/Places">
+                <img src={place} alt="place" />
+                <button>Réserver une place</button>
+              </Link>
             </div>
             <div className="action">
-              <img src={event} alt="event" />
-              <button>Consulter les événements</button>
+              <Link to="/Events">
+                <img src={event} alt="event" />
+                <button>Consulter les événements</button>
+              </Link>
             </div>
             <div className="action">
-              <img src={profil} alt="profil" />
-              <button>Espace personnel</button>
+              <Link to="/Profile">
+                <img src={profil} alt="profil" />
+                <button>Espace personnel</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -96,39 +115,58 @@ const Dashboard = () => {
         <section className="events">
           <h2>Evénements à venir</h2>
           <ul>
-            <li>Club de lecture: Fiction contemporaine</li>
-            <li>Conférence sur l'histoire locale</li>
+            <div className="event-card">
+              <img src={calendrier} alt="calendrier" />
+              <li>Club de lecture: Fiction contemporaine</li>
+            </div>
+            <div className="event-card">
+              <img src={calendrier} alt="calendrier" />
+              <li>Conférence sur l'histoire locale</li>
+            </div>
           </ul>
         </section>
       </div>
-
-      {/* Footer */}
       <footer className="footer-dashboard">
         <div className="content">
-          <div className="biblio">
-            <h3>BiblioSmart</h3>
-            <p>
-              Un espace dédié à la lecture, à la connaissance et au partage du
-              savoir.
-            </p>
-            <p>
-              © 2025 <strong>BiblioSmart.</strong>
-            </p>
+          <div className="left-side">
+            <div className="biblio">
+              <h3>BiblioSmart</h3>
+              <p className="paragraph">
+                Un espace dédié à la lecture, à la connaissance et au partage du
+                savoir.
+              </p>
+              <div className="social">
+                <img src={x} alt="x" />
+                <img src={fb} alt="fb" />
+                <img src={insta} alt="insta" />
+                <img src={linkedIn} alt="LinkedIn" />
+              </div>
+              <p>
+                © 2025 <strong>BiblioSmart.</strong>
+              </p>
+            </div>
           </div>
-          <div className="links">
-            <h4>Liens</h4>
-            <ul>
-              <li>A propos</li>
-              <li>Services</li>
-              <li>Equipe</li>
-              <li>Contact</li>
-            </ul>
-          </div>
-          <div className="contact">
-            <h4>Contact</h4>
-            <p>E-mail: tak.bh04@gmail.com</p>
-            <p>Informations de Contact: 73683100</p>
-            <p>sidi massoud, Cité universitaire, Hiboun 5147</p>
+
+          <div className="right-side">
+            <div className="links">
+              <ul>
+                <li>Apropos</li>
+                <li>Services</li>
+                <li>Equipe</li>
+                <li>Contact</li>
+              </ul>
+            </div>
+            <div className="contact">
+              <p className="mail">
+                <b>E-mail:</b> tak.bh04@gmail.com
+              </p>
+              <p className="tel">
+                <b>Informations de Contact:</b> 73683100
+              </p>
+              <p className="adresse">
+                <b>sidi massoud, Cité universitaire, Hiboun 5147</b>
+              </p>
+            </div>
           </div>
         </div>
       </footer>

@@ -1,12 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
-const Seconnecter = ({ setIsAuthenticated }) => {
+
+const Seconnecter = () => {
   const navigate = useNavigate();
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-    navigate("/Dashboard");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("http://localhost/bibliosmart/Seconnecter.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        // Si connexion réussie, rediriger vers le tableau de bord
+        navigate("/Dashboard");
+      } else {
+        setError(data.message); // Afficher l'erreur sous le formulaire
+      }
+    } catch (err) {
+      setError("Erreur de connexion au serveur.");
+    }
+  };
+
   return (
     <main className="seconnecter">
       <div className="container">
@@ -16,35 +46,47 @@ const Seconnecter = ({ setIsAuthenticated }) => {
           <p className="subtitle">
             Découvrez BiblioSmart d'une meilleure façon
           </p>
-          <form className="form">
+          <form className="form" onSubmit={handleSubmit}>
             <div className="info">
               <label>Email*</label>
-              <input type="email" placeholder="Votre email" required />
+              <input
+                type="email"
+                name="email"
+                onChange={handleChange}
+                required
+              />
             </div>
+
             <div className="info">
               <label>Mot De Passe*</label>
               <input
                 type="password"
-                placeholder="Votre mot de passe"
+                name="password"
+                onChange={handleChange}
                 required
               />
               <div className="forgot">
-                <Link to="/forgot-password">Mot de passe oublié?</Link>
+                <Link to="/forgot-password">Mot de passe oublié ?</Link>
               </div>
             </div>
-            <button type="submit" className="button" onClick={handleLogin}>
+
+            {error && <p style={{ color: "red" }}>{error}</p>}
+
+            <button type="submit" className="button">
               Se connecter
             </button>
           </form>
+
           <p className="sinscrire">
-            Vous n'avez pas un compte?{""}
+            Vous n'avez pas un compte ?{" "}
             <Link to="/sinscrire">Créer un compte</Link>
           </p>
         </div>
+
         <footer className="footer">
           <p>©2025 Bibliosmart.</p>
-          <div className="links">
-            <Link to="/contact">Contact</Link>
+          <div className="footer-links">
+            <Link to="/Contact">Contact</Link>
             <Link to="/Apropos">A propos</Link>
             <Link to="/Service">Services</Link>
           </div>
@@ -53,4 +95,5 @@ const Seconnecter = ({ setIsAuthenticated }) => {
     </main>
   );
 };
+
 export default Seconnecter;
