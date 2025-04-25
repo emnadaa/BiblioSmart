@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./index.css";
+import "./Sinscrire.css";
 
 const Sinscrire = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();

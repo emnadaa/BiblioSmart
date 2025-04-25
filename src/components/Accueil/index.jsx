@@ -23,14 +23,26 @@ const Accueil = () => {
     <main className="accueil">
       <nav className="introduction">
         <h4>Bienvenue à BiblioSmart!</h4>
-        <p>
+        <p className="p-acceuil">
           Découvrez un espace dédié à la lecture, à la connaissance et au
           partage du savoir. Que vous soyez étudiant, chercheur ou passionné de
           littérature, notre bibliothèque vous offre un large choix de livres,
           d’ouvrages numériques et de ressources éducatives.
         </p>
-        <button onClick={() => navigate("/Sinscrire")}>S'inscrire</button>
-        <button onClick={() => navigate("/Seconnecter")}>Se connecter</button>
+        <div className="buttons">
+          <button
+            onClick={() => navigate("/Sinscrire")}
+            className="acceuil-button"
+          >
+            S'inscrire
+          </button>
+          <button
+            onClick={() => navigate("/Seconnecter")}
+            className="acceuil-button"
+          >
+            Se connecter
+          </button>
+        </div>
         <br></br>
         {/* Icônes */}
         <FontAwesomeIcon icon={faFacebook} style={{ color: "#400101" }} />

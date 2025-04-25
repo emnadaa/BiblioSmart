@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import profile1 from "../assets/profile1.png";
 import places from "../assets/places.png";
 import id from "../assets/id.png";
-import "./index.css";
+import "./places.css";
 
 const Places = () => {
   const navigate = useNavigate();
@@ -94,7 +94,6 @@ const Places = () => {
             © 2025 <strong>BiblioSmart.</strong>
           </p>
         </div>
-
         <div className="right-side">
           <ul>
             <li>Apropos</li>

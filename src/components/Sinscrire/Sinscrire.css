@@ -127,14 +127,3 @@
 .footer-links a:hover {
   text-decoration: underline;
 }
-
-@media (max-width: 480px) {
-  .card {
-    padding: 1.5rem;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-}

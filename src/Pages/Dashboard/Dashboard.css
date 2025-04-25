@@ -175,7 +175,7 @@ body {
 .links li:hover {
   text-decoration: underline;
 }
-.contact {
+.dash-contact {
   display: flex;
   gap: 30px;
   margin-left: 350px;

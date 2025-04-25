@@ -7,7 +7,7 @@ import book3 from "../assets/book3.png";
 import book4 from "../assets/book4.png";
 import book5 from "../assets/book5.png";
 import book6 from "../assets/book6.png";
-import "./index.css";
+import "./livres.css";
 
 const Livres = () => {
   const navigate = useNavigate();

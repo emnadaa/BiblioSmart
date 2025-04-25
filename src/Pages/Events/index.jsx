@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import profile1 from "../assets/profile1.png";
-import "./index.css";
+import "./events.css";
 
 const Events = () => {
   const navigate = useNavigate();

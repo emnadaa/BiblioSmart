@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 50px;
-  background-color: #f2eadf; /* beige clair */
+  background-color: #f2eadf;
   font-family: "Arial", sans-serif;
 }
 
@@ -12,19 +12,20 @@
 }
 
 .introduction h4 {
+  display: flex;
   color: #1434a4; /* bleu */
   font-size: 24px;
   margin-bottom: 15px;
 }
 
-.introduction p {
+.introduction .p-acceuil {
   color: #c94b28; /* orange foncé */
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-.introduction button {
+.introduction .acceuil-button {
   padding: 10px 20px;
   margin-right: 10px;
   font-size: 16px;
@@ -33,12 +34,12 @@
   cursor: pointer;
 }
 
-.introduction button:first-of-type {
+.introduction .acceuil-button:first-of-type {
   background-color: #c94b28;
   color: white;
 }
 
-.introduction button:last-of-type {
+.introduction .acceuil-button:last-of-type {
   background-color: white;
   color: #c94b28;
   border: 1px solid #c94b28;
@@ -54,6 +55,9 @@
 
 .introduction svg:hover {
   transform: scale(1.2);
+}
+.buttons {
+  display: flex;
 }
 
 .pic img {

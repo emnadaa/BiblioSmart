@@ -14,7 +14,7 @@ import x from "../assets/twitter.png";
 import fb from "../assets/facebook.png";
 import insta from "../assets/instagram.png";
 import linkedIn from "../assets/linkedin.png";
-import "./index.css";
+import "./Dashboard.css";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
@@ -156,7 +156,7 @@ const Dashboard = () => {
                 <li>Contact</li>
               </ul>
             </div>
-            <div className="contact">
+            <div className="dash-contact">
               <p className="mail">
                 <b>E-mail:</b> tak.bh04@gmail.com
               </p>

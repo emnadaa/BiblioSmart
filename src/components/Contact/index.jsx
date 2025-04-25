@@ -19,17 +19,27 @@ const Contact = () => {
       <div className="info-container">
         <div className="info-left">
           <div className="info-block">
-            <span className="label">E-mail:</span>
+            <span className="ecrire">E-mail:</span>
             <span className="icon-text">
-              <FontAwesomeIcon icon={faEnvelope} className="icon" style={{color: "#B197FC",}}/>
-              <a href="mailto:emna.daadouch@gmail.com">emna.daadouch@gmail.com</a>
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="icon"
+                style={{ color: "#B197FC" }}
+              />
+              <a href="mailto:emna.daadouch@gmail.com">
+                emna.daadouch@gmail.com
+              </a>
             </span>
           </div>
 
           <div className="info-block">
-            <span className="label">Informations de Contact:</span>
+            <span className="ecrire">Informations de Contact:</span>
             <span className="icon-text">
-              <FontAwesomeIcon icon={faPhone} className="icon" style={{color: "#B197FC",}}/>
+              <FontAwesomeIcon
+                icon={faPhone}
+                className="icon"
+                style={{ color: "#B197FC" }}
+              />
               73683100
             </span>
           </div>
@@ -37,17 +47,25 @@ const Contact = () => {
 
         <div className="info-right">
           <div className="info-block">
-            <span className="label">Adresse:</span>
+            <span className="ecrire">Adresse:</span>
             <span className="icon-text">
-              <FontAwesomeIcon icon={faMapLocationDot} className="icon" style={{color: "#B197FC",}}/>
+              <FontAwesomeIcon
+                icon={faMapLocationDot}
+                className="icon"
+                style={{ color: "#B197FC" }}
+              />
               Sidi massouad, Cité universitaire, Hiboun 5147
             </span>
           </div>
 
           <div className="info-block">
-            <span className="label">Horaire:</span>
+            <span className="ecrire">Horaire:</span>
             <span className="icon-text">
-              <FontAwesomeIcon icon={faClock} className="icon" style={{color: "#B197FC",}}/>
+              <FontAwesomeIcon
+                icon={faClock}
+                className="icon"
+                style={{ color: "#B197FC" }}
+              />
               Lun-Ven 08:00-17:00
             </span>
           </div>
@@ -56,10 +74,10 @@ const Contact = () => {
 
       <div className="form-container">
         <div className="row">
-          <input type="text" placeholder="Nom" />
-          <input type="text" placeholder="Téléphone" />
+          <input type="text" placeholder="Nom" className="input" />
+          <input type="text" placeholder="Téléphone" className="input" />
         </div>
-        <input type="email" placeholder="Adresse e-mail" className="email" />
+        <input type="email" placeholder="Adresse e-mail" className="input" />
         <textarea placeholder="Message"></textarea>
         <button>Contactez-Nous</button>
       </div>
@@ -69,9 +87,8 @@ const Contact = () => {
 
 export default Contact;
 
-
-
-{/*
+{
+  /*
     <main className="contact">
         <h4>Contact</h4>
         <hr></hr>
@@ -102,4 +119,5 @@ export default Contact;
     
         
     </main>
-    */}
+    */
+}
