@@ -109,7 +109,7 @@ body {
   display: flex;
   gap: 40px;
 }
-.event-card {
+.events-card {
   display: flex;
   height: 120px;
   width: 550px;
@@ -117,13 +117,13 @@ body {
   border: 1px solid #d94814;
   border-radius: 10px;
 }
-.event-card img {
+.events-card img {
   margin-top: 20px;
   margin-left: 20px;
   width: 70px;
   height: 70px;
 }
-.event-card li {
+.events-card li {
   font-size: 20px;
   font-weight: bold;
   padding-top: 30px;
@@ -160,13 +160,12 @@ body {
   margin-top: 30px;
   color: #023059;
 }
-.links ul {
+.right-dash-foot .links ul {
   display: flex;
   margin-top: 0%;
   list-style: none;
   justify-content: space-between;
 }
-
 .links li {
   cursor: pointer;
   font-weight: bold;

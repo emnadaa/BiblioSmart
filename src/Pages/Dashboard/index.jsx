@@ -115,11 +115,11 @@ const Dashboard = () => {
         <section className="events">
           <h2>Evénements à venir</h2>
           <ul>
-            <div className="event-card">
+            <div className="events-card">
               <img src={calendrier} alt="calendrier" />
               <li>Club de lecture: Fiction contemporaine</li>
             </div>
-            <div className="event-card">
+            <div className="events-card">
               <img src={calendrier} alt="calendrier" />
               <li>Conférence sur l'histoire locale</li>
             </div>
@@ -128,7 +128,7 @@ const Dashboard = () => {
       </div>
       <footer className="footer-dashboard">
         <div className="content">
-          <div className="left-side">
+          <div className="left-dash-foot">
             <div className="biblio">
               <h3>BiblioSmart</h3>
               <p className="paragraph">
@@ -147,7 +147,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="right-side">
+          <div className="right-dash-foot">
             <div className="links">
               <ul>
                 <li>Apropos</li>

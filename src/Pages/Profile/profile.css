@@ -1,0 +1,114 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f2eadf;
+}
+.global-content {
+  display: flex;
+  margin-top: 30px;
+  background-color: #fbedde;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-top: 1px solid #858484;
+  border-bottom: 1px solid #858484;
+  gap: 20px;
+}
+.profile-photo {
+  border-radius: 10px;
+  border: 1px solid #d94814;
+  background-color: white;
+  padding: 30px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-photo .profil {
+  width: 200px;
+}
+.profile-photo h3 {
+  margin-bottom: 0px;
+}
+.profile-photo .actif {
+  margin-top: 0px;
+  display: flex;
+}
+.profile-photo .actif img {
+  margin-top: 12px;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.profil-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.modif-button {
+  background-color: #d94814;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
+  font-size: 20px;
+  width: 250px;
+  height: 45px;
+}
+.modif-button:hover {
+  background-color: white;
+  color: #d94814;
+  border: 1px solid #d94814;
+}
+.supp-button {
+  background-color: white;
+  color: #d94814;
+  border-style: none;
+  border-radius: 10px;
+  border: 1px solid #d94814;
+  font-size: 20px;
+  width: 250px;
+  height: 45px;
+}
+.supp-button:hover {
+  background-color: #d94814;
+  color: white;
+}
+.profile-content {
+  border-radius: 10px;
+  border: 1px solid #d94814;
+  background-color: white;
+  padding: 30px;
+  width: 880px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.profile-content h2 {
+  margin-top: 10px;
+}
+.profile-content hr {
+  width: 880px;
+}
+.profile-content label {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: medium;
+}
+.profile-content input {
+  margin-top: 20px;
+  width: 60pxpx;
+  height: 20px;
+  border-radius: 8px;
+  border: 1px solid #d94814;
+}
+.info-item {
+  display: flex;
+  gap: 5px;
+}
+.info-item img {
+  margin-top: 20px;
+  width: 20px;
+  height: 20px;
+}

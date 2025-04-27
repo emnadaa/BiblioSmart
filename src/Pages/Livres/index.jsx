@@ -7,6 +7,7 @@ import book3 from "../assets/book3.png";
 import book4 from "../assets/book4.png";
 import book5 from "../assets/book5.png";
 import book6 from "../assets/book6.png";
+import id from "../assets/id.png";
 import "./livres.css";
 
 const Livres = () => {
@@ -14,17 +15,6 @@ const Livres = () => {
   const [identifiant, setIdentifiant] = useState("");
   const [date, setDate] = useState({ jour: "", mois: "", annee: "" });
   const [selectedCategory, setSelectedCategory] = useState("");
-
-  const categories = [
-    "VISIONS OF TOMORROW",
-    "DETECTIVE STORIES",
-    "THE BIG DOCUMENT",
-    "MINDFUL EMPATHY",
-    "THE FINANCE FIELD",
-    "DEVON REMINGTON",
-    "LES MISÉRABLES",
-  ];
-
   const handleReservation = (e) => {
     e.preventDefault();
     // Logique de réservation ici
@@ -41,7 +31,9 @@ const Livres = () => {
       <nav className="navbar">
         <h1 className="logo">BiblioSmart</h1>
         <ul className="links">
-          <li>Accueil</li>
+          <Link to="/Dashboard">
+            <li>Accueil</li>
+          </Link>
           <Link to="/Places">
             <li>Réserver une place</li>
           </Link>
@@ -61,55 +53,99 @@ const Livres = () => {
         <h3>
           S'il vous plaît, choisissez un livre et entrez les données suivantes!
         </h3>
-
         <form onSubmit={handleReservation}>
-          <div className="form-group">
-            <label>Identifiant</label>
-            <input
-              type="text"
-              value={identifiant}
-              onChange={(e) => setIdentifiant(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Date de réservation souhaitée:</label>
-            <div className="date-inputs">
+          <div className="livre-content">
+            <div className="left-livre">
+              <div className="id-section">
+                <div
+                  className="id-bar"
+                  style={{ position: "relative", width: "300px" }}
+                >
+                  <img
+                    src={id}
+                    alt="identifiant"
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "10px",
+                      transform: "translateY(-50%)",
+                      width: "20px",
+                      height: "20px",
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Identifiant"
+                    style={{
+                      width: "400px",
+                      height: "20px",
+                      padding: "10px 10px 10px 40px",
+                      borderRadius: "8px",
+                      border: "1px solid #D94814",
+                    }}
+                  />
+                </div>
+              </div>
+              <label>Catégorie:</label>
               <input
-                type="number"
-                placeholder="jour"
-                name="jour"
-                value={date.jour}
-                onChange={handleDateChange}
+                type="text"
+                placeholder="Catégorie"
+                name="categorie"
                 min="1"
                 max="31"
                 required
               />
-              <input
-                type="number"
-                placeholder="mois"
-                name="mois"
-                value={date.mois}
-                onChange={handleDateChange}
-                min="1"
-                max="12"
-                required
-              />
-              <input
-                type="number"
-                placeholder="année"
-                name="annee"
-                value={date.annee}
-                onChange={handleDateChange}
-                min="2025"
-                required
-              />
+            </div>
+            <div className="livre-inputs">
+              <div className="date">
+                <label>Date de réservation souhaitée:</label>
+                <input
+                  type="number"
+                  placeholder="jour"
+                  name="jour"
+                  value={date.jour}
+                  onChange={handleDateChange}
+                  min="1"
+                  max="31"
+                  required
+                />
+                <input
+                  type="number"
+                  placeholder="mois"
+                  name="mois"
+                  value={date.mois}
+                  onChange={handleDateChange}
+                  min="1"
+                  max="12"
+                  required
+                />
+                <input
+                  type="number"
+                  placeholder="année"
+                  name="annee"
+                  value={date.annee}
+                  onChange={handleDateChange}
+                  min="2025"
+                  required
+                />
+              </div>
+              <div className="delai">
+                <label>Délai de réservation:</label>
+                <input
+                  type="number"
+                  placeholder="jour"
+                  name="jour"
+                  value={date.jour}
+                  onChange={handleDateChange}
+                  min="1"
+                  max="31"
+                  required
+                />
+              </div>
             </div>
           </div>
 
           <div className="categories">
-            <h4>Catégorie:</h4>
             <div className="books">
               <img src={book1} />
               <img src={book2} />
@@ -119,17 +155,20 @@ const Livres = () => {
               <img src={book6} />
             </div>
           </div>
-
-          <button type="submit" className="reserve-button">
-            Réserver
-          </button>
+          <div className="button-livre">
+            <button type="submit" className="reserve-button">
+              Réserver
+            </button>
+          </div>
         </form>
       </div>
 
       <footer className="simple-footer">
-        <p>
-          © 2025 <strong>BiblioSmart.</strong>
-        </p>
+        <div className="left-side">
+          <p>
+            © 2025 <strong>BiblioSmart.</strong>
+          </p>
+        </div>
         <div className="right-side">
           <ul>
             <li>Apropos</li>

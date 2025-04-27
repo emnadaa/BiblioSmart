@@ -4,7 +4,6 @@ import profile1 from "../assets/profile1.png";
 import places from "../assets/places.png";
 import id from "../assets/id.png";
 import "./places.css";
-
 const Places = () => {
   const navigate = useNavigate();
   return (
@@ -12,7 +11,10 @@ const Places = () => {
       <nav className="navbar">
         <h1 className="logo">BiblioSmart</h1>
         <ul className="links">
-          <li>Accueil</li>
+          <Link to="/Dashboard">
+            <li>Accueil</li>
+          </Link>
+
           <Link to="/Places">
             <li className="active">Réserver une place</li>
           </Link>
@@ -35,7 +37,7 @@ const Places = () => {
           </h3>
 
           <div className="form-group">
-            <div className="search-section">
+            <div className="id-section">
               <div
                 className="id-bar"
                 style={{ position: "relative", width: "300px" }}
@@ -56,8 +58,8 @@ const Places = () => {
                   type="text"
                   placeholder="Identifiant"
                   style={{
-                    width: "300px",
-                    height: "30px",
+                    width: "400px",
+                    height: "20px",
                     padding: "10px 10px 10px 40px",
                     borderRadius: "8px",
                     border: "1px solid #D94814",

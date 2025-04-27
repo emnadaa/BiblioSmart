@@ -13,26 +13,91 @@ body {
   width: 220px;
   height: 300px;
 }
+.livre-content {
+  display: flex;
+}
+.left-livre {
+  display: flex;
+  flex-direction: column;
+}
+.left-livre label {
+  font-weight: bold;
+  font-size: larger;
+}
+.left-livre input {
+  width: 250px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid #d94814;
+}
+.livre-inputs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 250px;
+  gap: 25px;
+}
+.date {
+  display: flex;
+  gap: 20px;
+}
+.date input {
+  width: 70px;
+  height: 33px;
+  border-radius: 8px;
+  border: 1px solid #d94814;
+}
+.delai {
+  display: flex;
+  gap: 20px;
+}
+.delai input {
+  width: 70px;
+  height: 33px;
+  border-radius: 8px;
+  border: 1px solid #d94814;
+}
+.livre-inputs label {
+  font-weight: bold;
+  font-size: larger;
+}
+.categories {
+  margin-top: 30px;
+  background-color: #fbedde;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-top: 2px solid #858484;
+  border-bottom: 2px solid #858484;
+}
+.button-livre {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+.books-content button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .simple-footer {
   display: flex;
   justify-content: space-between;
 }
-.left-side p {
+.simple-footer .left-side p {
+  margin-left: 30px;
   margin-top: 30px;
   color: #023059;
 }
-.right-side ul {
-  display: flex;
+.simple-footer .right-side {
+  margin-right: 30px;
+  margin-top: 10px;
+}
+.simple-footer .right-side ul {
   list-style: none;
-  justify-content: space-between;
-}
-
-.right-side li {
-  cursor: pointer;
   font-weight: bold;
-}
-
-.right-side li:hover {
-  text-decoration: underline;
+  display: flex;
+  gap: 30px;
+  color: #023373;
 }
