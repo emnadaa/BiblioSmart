@@ -27,6 +27,8 @@ const Seconnecter = () => {
       const data = await res.json();
 
       if (data.success) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("email", data.user.email);
         // Si connexion réussie, rediriger vers le tableau de bord
         navigate("/Dashboard");
       } else {

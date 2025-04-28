@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import profile1 from "../assets/profile1.png";
 import Loupe from "../assets/loupe.png";
 import Book from "../assets/open-book.png";
@@ -15,9 +15,14 @@ import fb from "../assets/facebook.png";
 import insta from "../assets/instagram.png";
 import linkedIn from "../assets/linkedin.png";
 import "./Dashboard.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    Navigate("/Seconnecter");
+  };
   return (
     <div className="biblioSmart">
       <nav className="navbar">
@@ -34,9 +39,22 @@ const Dashboard = () => {
             <li>Evénements</li>
           </Link>
         </ul>
-        <Link to="/Profile">
-          <img src={profile1} alt="user" />
-        </Link>
+        <div className="profile-dropdown">
+          <img
+            src={profile1}
+            alt="user"
+            className="profile-icon"
+            onClick={() => setShowDropdown(!showDropdown)}
+          />
+          {showDropdown && (
+            <div className="dropdown-menu">
+              <Link to="/Profile" onClick={() => setShowDropdown(false)}>
+                Mon Profil
+              </Link>
+              <button onClick={handleLogout}>Déconnexion</button>
+            </div>
+          )}
+        </div>
       </nav>
       <div className="content">
         <div className="search-section">

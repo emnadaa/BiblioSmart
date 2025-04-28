@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import profile1 from "../assets/profile1.png";
 import event1 from "../assets/event1.png";
@@ -7,7 +7,7 @@ import "./events.css";
 
 const Events = () => {
   const navigate = useNavigate();
-
+  const [showDropdown, setShowDropdown] = useState(false);
   const events = [
     {
       image: event1,
@@ -23,6 +23,10 @@ const Events = () => {
       description: "Découvrez l'histoire fascinante de notre région.",
     },
   ];
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/Seconnecter");
+  };
 
   return (
     <div className="events-page">
@@ -42,9 +46,22 @@ const Events = () => {
             <li className="active">Evénements</li>
           </Link>
         </ul>
-        <Link to="/Profile">
-          <img src={profile1} alt="user" />
-        </Link>
+        <div className="profile-dropdown">
+          <img
+            src={profile1}
+            alt="user"
+            className="profile-icon"
+            onClick={() => setShowDropdown(!showDropdown)}
+          />
+          {showDropdown && (
+            <div className="dropdown-menu">
+              <Link to="/Profile" onClick={() => setShowDropdown(false)}>
+                Mon Profil
+              </Link>
+              <button onClick={handleLogout}>Déconnexion</button>
+            </div>
+          )}
+        </div>
       </nav>
 
       <div className="events-content">

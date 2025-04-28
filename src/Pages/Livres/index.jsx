@@ -15,6 +15,7 @@ const Livres = () => {
   const [identifiant, setIdentifiant] = useState("");
   const [date, setDate] = useState({ jour: "", mois: "", annee: "" });
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
   const handleReservation = (e) => {
     e.preventDefault();
     // Logique de réservation ici
@@ -25,7 +26,10 @@ const Livres = () => {
     const { name, value } = e.target;
     setDate((prev) => ({ ...prev, [name]: value }));
   };
-
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/Seconnecter");
+  };
   return (
     <div className="books-page">
       <nav className="navbar">
@@ -44,9 +48,22 @@ const Livres = () => {
             <li>Evénements</li>
           </Link>
         </ul>
-        <Link to="/Profile">
-          <img src={profile1} alt="user" />
-        </Link>
+        <div className="profile-dropdown">
+          <img
+            src={profile1}
+            alt="user"
+            className="profile-icon"
+            onClick={() => setShowDropdown(!showDropdown)}
+          />
+          {showDropdown && (
+            <div className="dropdown-menu">
+              <Link to="/Profile" onClick={() => setShowDropdown(false)}>
+                Mon Profil
+              </Link>
+              <button onClick={handleLogout}>Déconnexion</button>
+            </div>
+          )}
+        </div>
       </nav>
 
       <div className="books-content">

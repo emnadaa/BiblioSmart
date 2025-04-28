@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import profile1 from "../assets/profile1.png";
 import profilPic from "../assets/profil-pic.png";
@@ -14,15 +14,27 @@ import "./profile.css";
 
 const Profile = () => {
   const navigate = useNavigate();
+  const savedUser = JSON.parse(localStorage.getItem("user")) || {};
+
   const [userInfo, setUserInfo] = useState({
-    nomPrenom: "",
-    sexe: "",
-    cin: "",
-    nationalite: "",
-    dateNaissance: "",
-    email: "",
-    telephone: "",
+    nom: savedUser.nom || "",
+    Prenom: savedUser.prenom || "",
+    sexe: savedUser.sexe || "",
+    cin: savedUser.cin || "",
+    nationalite: savedUser.nationalite || "",
+    dateNaissance: savedUser.date_naissance || "",
+    email: savedUser.email || "",
+    telephone: savedUser.telephone || "",
   });
+
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("email");
+    if (savedEmail) {
+      setUserInfo((prev) => ({ ...prev, email: savedEmail }));
+    }
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,9 +43,9 @@ const Profile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logique de sauvegarde ici
     console.log(userInfo);
   };
+
   const handleDelete = async () => {
     const confirmation = window.confirm(
       "Êtes-vous sûr de vouloir supprimer votre compte ?"
@@ -43,32 +55,32 @@ const Profile = () => {
         const response = await fetch(
           "http://localhost/bibliosmart/DeleteAccount.php",
           {
-            method: "DELETE", // Use DELETE request
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email: userInfo.email }), // Send user's email or ID to delete the account
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: userInfo.email }),
           }
         );
 
         const data = await response.json();
 
         if (data.success) {
-          alert("Compte supprimé avec succès");
-          navigate("/Seconnecter"); // Redirect to login page after deletion
+          alert("✅ " + data.message);
+          localStorage.removeItem("user");
+          navigate("/Seconnecter");
         } else {
-          alert("Erreur lors de la suppression du compte");
+          alert("⚠️ " + data.message);
         }
       } catch (err) {
-        alert("Erreur de connexion au serveur");
+        console.error(err);
+        alert("Erreur de connexion au serveur 🚨");
       }
     }
   };
 
-  // Add the onClick event handler to the "Supprimer" button
-  <button className="supp-button" onClick={handleDelete}>
-    Supprimer
-  </button>;
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/Seconnecter");
+  };
 
   return (
     <div className="profile-page">
@@ -88,14 +100,32 @@ const Profile = () => {
             <li>Evénements</li>
           </Link>
         </ul>
-        <Link className="active" to="/Profile">
-          <img src={profile1} alt="user" />
-        </Link>
+
+        {/* Profile Dropdown */}
+        <div className="profile-dropdown">
+          <img
+            src={profile1}
+            alt="user"
+            className="profile-icon"
+            onClick={() => setShowDropdown(!showDropdown)}
+          />
+          {showDropdown && (
+            <div className="dropdown-menu">
+              <Link to="/Profile" onClick={() => setShowDropdown(false)}>
+                Mon Profil
+              </Link>
+              <button onClick={handleLogout}>Déconnexion</button>
+            </div>
+          )}
+        </div>
       </nav>
+
       <div className="global-content">
         <div className="profile-photo">
           <img src={profilPic} className="profil" alt="profil-pic" />
-          <h3>User Name</h3>
+          <h3>
+            {userInfo.nom} {userInfo.Prenom}
+          </h3>
           <div className="actif">
             <img src={Actif} alt="actif" />
             <p>Actif</p>
@@ -107,18 +137,29 @@ const Profile = () => {
             </button>
           </div>
         </div>
+
         <div className="profile-content">
           <form onSubmit={handleSubmit}>
             <h2>Informations générales</h2>
-            <hr></hr>
+            <hr />
             <div className="info-section">
               <div className="info-item">
                 <img src={Nom} alt="nom" />
-                <label>Nom & Prénom:</label>
+                <label>Nom:</label>
                 <input
                   type="text"
-                  name="nomPrenom"
-                  value={userInfo.nomPrenom}
+                  name="nom"
+                  value={userInfo.nom}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="info-item">
+                <img src={Nom} alt="nom" />
+                <label>Prénom:</label>
+                <input
+                  type="text"
+                  name="Prenom"
+                  value={userInfo.Prenom}
                   onChange={handleInputChange}
                 />
               </div>
@@ -165,7 +206,7 @@ const Profile = () => {
             </div>
 
             <h2>Informations de contact</h2>
-            <hr></hr>
+            <hr />
             <div className="info-section">
               <div className="info-item">
                 <img src={email} alt="email" />
@@ -191,6 +232,7 @@ const Profile = () => {
           </form>
         </div>
       </div>
+
       <footer className="simple-footer">
         <div className="left-side">
           <p>

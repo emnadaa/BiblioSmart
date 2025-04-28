@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import profile1 from "../assets/profile1.png";
 import places from "../assets/places.png";
@@ -6,6 +6,11 @@ import id from "../assets/id.png";
 import "./places.css";
 const Places = () => {
   const navigate = useNavigate();
+  const [showDropdown, setShowDropdown] = useState(false);
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/Seconnecter");
+  };
   return (
     <div className="reserve-place">
       <nav className="navbar">
@@ -25,9 +30,22 @@ const Places = () => {
             <li>Evénements</li>
           </Link>
         </ul>
-        <Link to="/Profile">
-          <img src={profile1} alt="user" />
-        </Link>
+        <div className="profile-dropdown">
+          <img
+            src={profile1}
+            alt="user"
+            className="profile-icon"
+            onClick={() => setShowDropdown(!showDropdown)}
+          />
+          {showDropdown && (
+            <div className="dropdown-menu">
+              <Link to="/Profile" onClick={() => setShowDropdown(false)}>
+                Mon Profil
+              </Link>
+              <button onClick={handleLogout}>Déconnexion</button>
+            </div>
+          )}
+        </div>
       </nav>
       <div className="content-places">
         <div className="reservation-form">
